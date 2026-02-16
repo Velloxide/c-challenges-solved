@@ -6,7 +6,7 @@
 /*   By: Itachi-Logic <ILogic@student.1337.ma>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/15 10:05:28 by Itachi-Logic      #+#    #+#             */
-/*   Updated: 2026/02/16 16:41:55 by Itachi-Logic     ###   ########.fr       */
+/*   Updated: 2026/02/16 17:41:22 by Itachi-Logic     ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,19 +51,19 @@ static int	is_c_valid(char c, char *base)
 	return (-1);
 }
 
-static int	ft_count(char *str, char *base, int len)
+static int	ft_count(char *nbr, char *base, int len)
 {
 	int	result;
 	int	i;
 
 	result = 0;
-	while (*str)
+	while (*nbr)
 	{
-		i = is_c_valid(*str, base);
+		i = is_c_valid(*nbr, base);
 		if (i == -1)
 			return (result);
 		result = (result * len) + i;
-		str++;
+		nbr++;
 	}
 	return (result);
 }
