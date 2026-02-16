@@ -6,7 +6,7 @@
 /*   By: Itachi-Logic <ILogic@student.1337.ma>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/15 10:05:28 by Itachi-Logic      #+#    #+#             */
-/*   Updated: 2026/02/16 15:04:15 by Itachi-Logic     ###   ########.fr       */
+/*   Updated: 2026/02/16 16:41:55 by Itachi-Logic     ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,7 +68,7 @@ static int	ft_count(char *str, char *base, int len)
 	return (result);
 }
 
-int	ft_atoi_base(char *str, char *base)
+int	ft_atoi_base(char *nbr, char *base)
 {
 	int	len;
 	int	sign;
@@ -76,16 +76,16 @@ int	ft_atoi_base(char *str, char *base)
 	len = is_base_valid(base);
 	if (!len)
 		return (0);
-	while (*str >= 9 && (*str <= 13 || *str == ' '))
-		str++;
+	while (*nbr >= 9 && (*nbr <= 13 || *nbr == ' '))
+		nbr++;
 	sign = 1;
-	while (*str && (*str == '-' || *str == '+'))
+	while (*nbr && (*nbr == '-' || *nbr == '+'))
 	{
-		if (*str == '-')
+		if (*nbr == '-')
 			sign *= -1;
-		str++;
+		nbr++;
 	}
-	return (sign * (ft_count(str, base, len)));
+	return (sign * (ft_count(nbr, base, len)));
 }
 /*
 int	main(int argc, char **argv)
