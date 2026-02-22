@@ -1,26 +1,18 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_boolean.h                                       :+:      :+:    :+:   */
+/*   ft_abs.h                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Itachi-Logic <ILogic@student.1337.ma>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/20 23:25:38 by Itachi-Logic      #+#    #+#             */
-/*   Updated: 2026/02/22 00:34:38 by Itachi-Logic     ###   ########.fr       */
+/*   Created: 2026/02/22 00:32:21 by Itachi-Logic      #+#    #+#             */
+/*   Updated: 2026/02/22 00:53:59 by Itachi-Logic     ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_BOOLEAN_H
-# define FT_BOOLEAN_H
-# include <unistd.h>
+#ifndef FT_ABS_H
+# define FT_ABS_H
 
-typedef int	t_bool;
-
-# define EVEN(nbr)	((nbr) % 2 == 0)
-# define TRUE 1
-# define FALSE 0
-# define EVEN_MSG "I have an even number of arguments.\n"
-# define ODD_MSG  "I have an odd number of arguments.\n"
-# define SUCCESS 0
+# define ABS(Value)	((Value < 0) ? -(Value) : (Value))
 
 #endif
