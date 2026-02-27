@@ -6,7 +6,7 @@
 /*   By: Itachi-Logic <ILogic@student.1337.ma>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/26 23:45:12 by Itachi-Logic      #+#    #+#             */
-/*   Updated: 2026/02/27 01:15:05 by Itachi-Logic     ###   ########.fr       */
+/*   Updated: 2026/02/27 01:18:37 by Itachi-Logic     ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,7 @@
 int	ft_strlen(char *str)
 {
 	int	i = 0;
+
 	while (str[i])
 		i++;
 	return (i);
@@ -24,7 +25,8 @@ int	ft_strlen(char *str)
 int	ft_strcasecmp(char *s1, char *s2)
 {
 	int	i = 0;
-	char	c1, c2;
+	char	c1;
+	char 	c2;
 	
 	while (s1[i] || s2[i])
 	{
@@ -43,8 +45,8 @@ int	ft_strcasecmp(char *s1, char *s2)
 
 int	ft_len_words(char *str)
 {
-	int count;
-	int i;
+	int	count;
+	int	i;
 
 	count = 0;
 	i = 0;
@@ -67,6 +69,7 @@ void	ft_sort_array(char **word, int size)
 	int		k = 0;
 	int		l;
 	char	*tmp;
+
 	while (k < size - 1)
 	{
 		l = k + 1;
@@ -95,7 +98,9 @@ void	ft_sort_array(char **word, int size)
 
 void	ft_print_array(char **word, int size)
 {
-	int	k = 0;
+	int	k;
+
+	k = 0;
 	while (k < size)
 	{
 		printf("%s", word[k]);
@@ -114,9 +119,9 @@ void	ft_print_array(char **word, int size)
 void	ft_ord_alphlong(char *str)
 {
 	char	**word;
-	int	len_wods;
-	int	i;
-	int	j;
+	int		len_wods;
+	int		i;
+	int		j;
 
 	len_wods = ft_len_words(str);
 	if (len_wods == 0)
