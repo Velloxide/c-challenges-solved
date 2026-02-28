@@ -6,7 +6,7 @@
 /*   By: Itachi-Logic <ILogic@student.1337.ma>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/26 23:45:12 by Itachi-Logic      #+#    #+#             */
-/*   Updated: 2026/02/27 23:23:30 by Itachi-Logic     ###   ########.fr       */
+/*   Updated: 2026/02/28 23:39:42 by Itachi-Logic     ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ void	ft_ord_alphlong(char *str)
 {
 	char	**word;
 	int		len_wods;
-	int		i;
 	int		j;
 
 	len_wods = ft_len_words(str);
@@ -47,17 +46,16 @@ void	ft_ord_alphlong(char *str)
 	word = malloc(sizeof(char *) * (len_wods + 1));
 	if (!word)
 		return ;
-	i = 0;
 	j = 0;
-	while (str[i])
+	while (*str)
 	{
-		while (str[i] == ' ' || str[i] == '\t')
-			str[i++] = '\0';
-		if (str[i] != '\0')
+		while (*str == ' ' || *str == '\t')
+			*str++ = '\0';
+		if (*str != '\0')
 		{
-			word[j] = &str[i];
-			while (str[i] != '\0' && str[i] != ' ' && str[i] != '\t')
-				i++;
+			word[j] = &(*str);
+			while (*str != '\0' && *str != ' ' && *str != '\t')
+				str++;
 			j++;
 		}
 	}
@@ -70,7 +68,10 @@ void	ft_ord_alphlong(char *str)
 int	main(int argc, char *argv[])
 {
 	if (argc != 2)
+	{
+		ft_putchar('\n');
 		return (0);
+	}
 	ft_ord_alphlong(argv[1]);
 	return (0);
 }

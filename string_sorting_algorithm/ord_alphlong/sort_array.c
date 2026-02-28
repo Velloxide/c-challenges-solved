@@ -6,7 +6,7 @@
 /*   By: Itachi-Logic <ILogic@student.1337.ma>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/27 23:14:25 by Itachi-Logic      #+#    #+#             */
-/*   Updated: 2026/02/28 00:57:04 by Itachi-Logic     ###   ########.fr       */
+/*   Updated: 2026/02/28 23:23:15 by Itachi-Logic     ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,11 +22,21 @@ int	ft_strlen(char *str)
 	return (i);
 }
 
+void	ft_swap(char **word, int k, int l)
+{
+	char	*tmp;
+
+	tmp = word[k];
+	word[k] = word[l];
+	word[l] = tmp;
+}
+
 void	ft_sort_array(char **word, int size)
 {
-	int		k;
-	int		l;
-	char	*tmp;
+	int	k;
+	int	l;
+	int	len_k;
+	int	len_l;
 
 	k = 0;
 	while (k < size - 1)
@@ -34,20 +44,14 @@ void	ft_sort_array(char **word, int size)
 		l = k + 1;
 		while (l < size)
 		{
-			if (ft_strlen(word[k]) > ft_strlen(word[l]))
-			{
-				tmp = word[k];
-				word[k] = word[l];
-				word[l] = tmp;
-			}
-			else if (ft_strlen(word[k]) == ft_strlen(word[l]))
+			len_k = ft_strlen(word[k]);
+			len_l = ft_strlen(word[l]);
+			if (len_k > len_l)
+				ft_swap(word, k, l);
+			else if (len_k == len_l)
 			{
 				if (ft_strcasecmp(word[k], word[l]) > 0)
-				{
-					tmp = word[k];
-					word[k] = word[l];
-					word[l] = tmp;
-				}
+					ft_swap(word, k, l);
 			}
 			l++;
 		}

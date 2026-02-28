@@ -6,7 +6,7 @@
 #    By: Itachi-Logic <ILogic@student.1337.ma>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/27 23:31:16 by Itachi-Logic      #+#    #+#              #
-#    Updated: 2026/02/28 00:47:27 by Itachi-Logic     ###   ########.fr        #
+#    Updated: 2026/02/28 23:25:32 by Itachi-Logic     ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,6 +33,3 @@ $(NAME): $(SRC_FILE)
 # Rule to delete everything
 clean:
 	$(RM) $(NAME)
-
-# Rule to rebuild from scratch
-re: fclean all

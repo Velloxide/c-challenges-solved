@@ -6,12 +6,26 @@
 /*   By: Itachi-Logic <ILogic@student.1337.ma>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/27 23:17:39 by Itachi-Logic      #+#    #+#             */
-/*   Updated: 2026/02/27 23:19:04 by Itachi-Logic     ###   ########.fr       */
+/*   Updated: 2026/02/28 23:27:07 by Itachi-Logic     ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+#include <unistd.h>
 #include "ord_tools.h"
+
+void	ft_putchar(char c)
+{
+	write(1, &c, 1);
+}
+
+void	ft_pustr(char *str)
+{
+	while (*str)
+	{
+		ft_putchar(*str);
+		str++;
+	}
+}
 
 void	ft_print_array(char **word, int size)
 {
@@ -20,15 +34,15 @@ void	ft_print_array(char **word, int size)
 	k = 0;
 	while (k < size)
 	{
-		printf("%s", word[k]);
+		ft_pustr(word[k]);
 		if (k + 1 < size)
 		{
 			if (ft_strlen(word[k]) == ft_strlen(word[k + 1]))
-				printf(" ");
+				ft_putchar(' ');
 			else
-				printf("\n");
+				ft_putchar('\n');
 		}
 		k++;
 	}
-	printf("\n");
+	ft_putchar('\n');
 }
