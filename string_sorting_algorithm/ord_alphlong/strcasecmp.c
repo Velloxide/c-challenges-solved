@@ -1,18 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   strcasecmp.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Itachi-Logic <ILogic@student.1337.ma>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/24 23:36:42 by Itachi-Logic      #+#    #+#             */
-/*   Updated: 2026/02/24 23:45:00 by Itachi-Logic     ###   ########.fr       */
+/*   Created: 2026/02/27 23:16:44 by Itachi-Logic      #+#    #+#             */
+/*   Updated: 2026/02/27 23:17:12 by Itachi-Logic     ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	main(int argc, char *argv[])
+
+int	ft_strcasecmp(char *s1, char *s2)
 {
-	(void) argc;
-	(void) argv;
+	int	i;
+	char	c1;
+	char 	c2;
+
+	i = 0;
+	while (s1[i] || s2[i])
+	{
+		c1 = s1[i];
+		c2 = s2[i];
+		if (c1 >= 'A' && c1 <= 'Z')
+			c1 += 32;
+		if (c2 >= 'A' && c2 <= 'Z')
+			c2 += 32;
+		if (c1 != c2)
+			return (c1 - c2);
+		i++;
+	}
 	return (0);
 }

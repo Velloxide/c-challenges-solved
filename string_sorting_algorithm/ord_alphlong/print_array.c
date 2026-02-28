@@ -1,18 +1,34 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_putchar.c                                       :+:      :+:    :+:   */
+/*   print_array.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Itachi-Logic <ILogic@student.1337.ma>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/02/24 23:36:42 by Itachi-Logic      #+#    #+#             */
-/*   Updated: 2026/02/24 23:45:00 by Itachi-Logic     ###   ########.fr       */
+/*   Created: 2026/02/27 23:17:39 by Itachi-Logic      #+#    #+#             */
+/*   Updated: 2026/02/27 23:19:04 by Itachi-Logic     ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-int	main(int argc, char *argv[])
+#include <stdio.h>
+#include "ord_tools.h"
+
+void	ft_print_array(char **word, int size)
 {
-	(void) argc;
-	(void) argv;
-	return (0);
+	int	k;
+
+	k = 0;
+	while (k < size)
+	{
+		printf("%s", word[k]);
+		if (k + 1 < size)
+		{
+			if (ft_strlen(word[k]) == ft_strlen(word[k + 1]))
+				printf(" ");
+			else
+				printf("\n");
+		}
+		k++;
+	}
+	printf("\n");
 }

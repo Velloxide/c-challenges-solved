@@ -6,42 +6,12 @@
 /*   By: Itachi-Logic <ILogic@student.1337.ma>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/26 23:45:12 by Itachi-Logic      #+#    #+#             */
-/*   Updated: 2026/02/27 01:18:37 by Itachi-Logic     ###   ########.fr       */
+/*   Updated: 2026/02/27 23:23:30 by Itachi-Logic     ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include <stdlib.h>
-
-int	ft_strlen(char *str)
-{
-	int	i = 0;
-
-	while (str[i])
-		i++;
-	return (i);
-}
-
-int	ft_strcasecmp(char *s1, char *s2)
-{
-	int	i = 0;
-	char	c1;
-	char 	c2;
-	
-	while (s1[i] || s2[i])
-	{
-		c1 = s1[i];
-		c2 = s2[i];
-		if (c1 >= 'A' && c1 <= 'Z')
-			c1 += 32;
-		if (c2 >= 'A' && c2 <= 'Z')
-			c2 += 32;
-		if (c1 != c2)
-			return (c1 - c2);
-		i++;
-	}
-	return (0);
-}
+#include "ord_tools.h"
 
 int	ft_len_words(char *str)
 {
@@ -62,58 +32,6 @@ int	ft_len_words(char *str)
 		}
 	}
 	return (count);
-}
-
-void	ft_sort_array(char **word, int size)
-{
-	int		k = 0;
-	int		l;
-	char	*tmp;
-
-	while (k < size - 1)
-	{
-		l = k + 1;
-		while (l < size)
-		{
-			if (ft_strlen(word[k]) > ft_strlen(word[l]))
-			{
-				tmp = word[k];
-				word[k] = word[l];
-				word[l] = tmp;
-			}
-			else if (ft_strlen(word[k]) == ft_strlen(word[l]))
-			{
-				if (ft_strcasecmp(word[k], word[l]) > 0)
-				{
-					tmp = word[k];
-					word[k] = word[l];
-					word[l] = tmp;
-				}
-			}
-			l++;
-		}
-		k++;
-	}
-}
-
-void	ft_print_array(char **word, int size)
-{
-	int	k;
-
-	k = 0;
-	while (k < size)
-	{
-		printf("%s", word[k]);
-		if (k + 1 < size)
-		{
-			if (ft_strlen(word[k]) == ft_strlen(word[k + 1]))
-				printf(" ");
-			else
-				printf("\n");
-		}
-		k++;
-	}
-	printf("\n");
 }
 
 void	ft_ord_alphlong(char *str)
@@ -143,6 +61,7 @@ void	ft_ord_alphlong(char *str)
 			j++;
 		}
 	}
+	word[j] = NULL;
 	ft_sort_array(word, j);
 	ft_print_array(word, j);
 	free(word);
