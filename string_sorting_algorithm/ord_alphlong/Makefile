@@ -6,7 +6,7 @@
 #    By: Itachi-Logic <ILogic@student.1337.ma>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/27 23:31:16 by Itachi-Logic      #+#    #+#              #
-#    Updated: 2026/02/28 23:25:32 by Itachi-Logic     ###   ########.fr        #
+#    Updated: 2026/03/02 21:02:42 by Itachi-Logic     ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,17 +19,22 @@ RM = rm -f
 
 # --- Rules ---
 
-# Default rule to build the library
+# Default rule to build the executable
 all: $(NAME)
 
-# Rule to archive the .o files into the library
+# Rule to compile source files directly into the executable
 $(NAME): $(SRC_FILE)
 	$(CC) $(FLAGS) $(SRC_FILE) -o $(NAME)
 
-# Smart rule to compile any .c file into a .o file
-%.o: %.c
-	$(CC) $(FLAGS) -c $< -o $@
-
-# Rule to delete everything
+# Empty clean rule because there are no .o files to delete
 clean:
+
+# Rule to delete the executable file
+fclean: clean
 	$(RM) $(NAME)
+
+# Rule to rebuild everything from scratch
+re: fclean all
+
+# Protect rules from conflicting with real files
+.PHONY: all clean fclean re
