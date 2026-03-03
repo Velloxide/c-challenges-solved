@@ -6,8 +6,16 @@
 /*   By: Itachi-Logic <ILogic@student.1337.ma>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 23:37:01 by Itachi-Logic      #+#    #+#             */
-/*   Updated: 2026/02/24 23:37:02 by Itachi-Logic     ###   ########.fr       */
+/*   Updated: 2026/03/02 23:39:27 by Itachi-Logic     ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+int	ft_strlen(char *str)
+{
+	int	i;
 
+	i = 0;
+	while (str[i])
+		i++;
+	return (i);
+}

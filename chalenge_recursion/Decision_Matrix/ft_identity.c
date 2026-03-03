@@ -6,7 +6,7 @@
 /*   By: Itachi-Logic <ILogic@student.1337.ma>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/01/26 18:27:47 by Itachi-Logic      #+#    #+#             */
-/*   Updated: 2026/01/26 18:40:29 by Itachi-Logic     ###   ########.fr       */
+/*   Updated: 2026/03/02 22:19:58 by Itachi-Logic     ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,13 +36,33 @@ int	is_valide(char *str, char *arry)
 	return (1);
 }
 
+int	ft_stop(char *s, int len)
+{
+	int	i;
+	int	sum;
+
+	i = 0;
+	sum = 0;
+	while(s[i])
+	{
+		sum = sum + (s[i] - 48);
+		i++;
+	}
+	if(sum == len)
+		return (1);
+	return 0;
+}
+
 void	check_print(char *arry, char *str, int len, int current_index)
 {
 	arry[current_index] = '\0';
-	if (is_valide(str, arry))
+	if (ft_stop(arry, len))
 	{
-		write(1, arry, len);
-		write(1, "\n", 1);
+		if (is_valide(str, arry))
+		{
+			write(1, arry, len);
+			write(1, "\n", 1);
+		}
 	}
 }
 

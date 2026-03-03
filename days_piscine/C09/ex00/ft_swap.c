@@ -6,8 +6,16 @@
 /*   By: Itachi-Logic <ILogic@student.1337.ma>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 23:37:10 by Itachi-Logic      #+#    #+#             */
-/*   Updated: 2026/02/24 23:37:11 by Itachi-Logic     ###   ########.fr       */
+/*   Updated: 2026/03/02 23:37:41 by Itachi-Logic     ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+void	ft_swap(int *a, int *b)
+{
+	int	temp;
 
+	temp = *a;
+	*a = *b;
+	*b = temp;
+	return ;
+}

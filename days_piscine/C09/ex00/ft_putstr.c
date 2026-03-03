@@ -6,8 +6,20 @@
 /*   By: Itachi-Logic <ILogic@student.1337.ma>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 23:36:49 by Itachi-Logic      #+#    #+#             */
-/*   Updated: 2026/02/24 23:36:51 by Itachi-Logic     ###   ########.fr       */
+/*   Updated: 2026/03/03 00:37:50 by Itachi-Logic     ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+void	ft_putchar(char c);
 
+void	ft_putstr(char *str)
+{
+	int	i;
+
+	i = 0;
+	while (str[i])
+	{
+		ft_putchar(str[i]);
+		i++;
+	}
+}
