@@ -1,0 +1,14 @@
+Exercise 00: ft_zigzag_words
+
+Turn-in directory: ex00/
+
+Files to turn in: ft_zigzag_words.c
+
+Allowed functions: write
+
+Description:
+Write a program that takes exactly one string as an argument.
+The program must print the words inside the string separated by a single space.
+However, it must print the first word normally, the second word reversed,
+the third word normally, the fourth reversed, and so on.
+If the number of arguments is not 1, print a newline
