@@ -1,0 +1,93 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   ft_replace_and_flip.c                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: Itachi-Logic <ILogic@student.1337.ma>      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/09 00:06:41 by Itachi-Logic      #+#    #+#             */
+/*   Updated: 2026/03/09 01:16:18 by Itachi-Logic     ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include <stdlib.h>
+#include <unistd.h>
+#include <stdio.h>
+
+int	ft_strlen(char *str)
+{
+	int	len;
+	
+	len = 0;
+	while (str[len])
+		len++;
+	return (len);
+}
+
+int	ft_len_word(char *str)
+{
+	int	len;
+
+	len = 0;
+	while (*str)
+	{
+		while (*str == ' ')
+        		str++;
+		if (*str != '\0')
+    		{
+			len++;
+			while (*str && *str != ' ')
+				str++;
+		}
+	}
+	return (len);
+}
+
+int	ft_len_number(int nb)
+{
+	int	i;
+
+	i = 1;
+	while (nb > 9)
+	{
+		nb = nb / 10;
+		i++;
+	}
+	return (i);
+}
+
+void	ft_solve_helper(char *str, char *arry)
+{
+	// "Run   go   fast go  and lO jump go   here"
+	// "Run   Lo   fast Lo  and 11 go jump Lo   here \n"
+	
+	
+}
+
+char    *ft_replace_and_flip(char *str)
+{
+	int	len;
+	int	len_word;
+	int	len_number;
+	int	total_len;
+	char	*arry;
+
+	len_word = ft_len_word(str);
+	len = ft_strlen(str);
+	len_number = ft_len_number(len_word);
+	total_len = len + len_number + 3;
+	arry = malloc(total_len * sizeof(char));
+	if (!arry)
+		return (NULL);
+	arry[total_len - 1] = '\0';
+	ft_solve_helper(str, arry);
+	return (arry);
+}
+
+int	main(int argc, char *argv[])
+{
+	if (argc != 2)
+		return (0);
+	ft_replace_and_flip(argv[1]);
+	return (0);
+}
