@@ -6,7 +6,7 @@
 /*   By: Itachi-Logic <ILogic@student.1337.ma>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/09 00:06:41 by Itachi-Logic      #+#    #+#             */
-/*   Updated: 2026/03/09 01:16:18 by Itachi-Logic     ###   ########.fr       */
+/*   Updated: 2026/03/09 01:34:57 by Itachi-Logic     ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	ft_len_word(char *str)
 		while (*str == ' ')
         		str++;
 		if (*str != '\0')
-    		{
+		{
 			len++;
 			while (*str && *str != ' ')
 				str++;
@@ -56,11 +56,44 @@ int	ft_len_number(int nb)
 	return (i);
 }
 
+char	*ft_find(char *str, int index)
+{
+	int	from;
+	int	to;
+	int	count;
+	int	i;
+
+	i = 0;
+	count = 0;
+	while (str[i])
+	{
+		while (str[i] != ' ')
+			i++;
+		if (str[i] != '\0')
+		{
+			count++;
+			if (count == index)
+				from = i;
+			while (str[i] && str[i] != ' ')
+				i++;
+			if (count == index)
+				to = i;
+		}
+	}
+	arry = malloc(sizeof(char) * .....);
+
+}
+
 void	ft_solve_helper(char *str, char *arry)
 {
 	// "Run   go   fast go  and lO jump go   here"
 	// "Run   Lo   fast Lo  and 11 go jump Lo   here \n"
-	
+	char	*i_one;
+	char	*i_five;
+
+	i_one = ft_find(str, 1);
+	i_five = ft_find(str, 5)
+
 	
 }
 
