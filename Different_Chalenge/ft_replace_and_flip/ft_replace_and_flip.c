@@ -6,7 +6,7 @@
 /*   By: Itachi-Logic <ILogic@student.1337.ma>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/09 00:06:41 by Itachi-Logic      #+#    #+#             */
-/*   Updated: 2026/03/11 00:00:54 by Itachi-Logic     ###   ########.fr       */
+/*   Updated: 2026/03/11 01:17:21 by Itachi-Logic     ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ int	ft_scout(char *str, int *info)
 				i++;
 		}
 	}
-	info[3] = i;
+	info[3] = i + 1;
 	i = 1;
 	nb = info[2] + 2;
 	while (nb > 9)
@@ -46,17 +46,36 @@ int	ft_scout(char *str, int *info)
 		nb /= 10;
 		i++;
 	}
-	return (i + 1);
+	return (i);
 }
 
 int	ft_insert_number(char *new_str, int dest_idx, int total_words)
 {
-
+	if (total_words <= 9)
+	{
+		new_str[dest_idx] = (total_words % 10) + '0';
+		return (dest_idx + 1);
+	}
+	if (total_words > 9)
+		dest_idx = ft_insert_number(new_str, dest_idx, total_words / 10);
+	new_str[dest_idx] = (total_words % 10) + '0';
+	return (dest_idx + 1);
 }
 
 int	ft_copy_and_flip(char *new_str, int dest_idx, char *str, int src_idx)
 {
-
+	while (str[src_idx] != ' ' && str[src_idx] != '\0')
+	{
+		if (str[src_idx] >= 'a' && str[src_idx] <= 'z')
+			new_str[dest_idx] = str[src_idx] - 32;
+		else if (str[src_idx] >= 'A' && str[src_idx] <= 'Z')
+			new_str[dest_idx] = str[src_idx] + 32;
+		else
+			new_str[dest_idx] = str[src_idx];
+		src_idx++;
+		dest_idx++;
+	}
+	return (dest_idx);
 }
 
 void	ft_builder_copy(char *str, char *arry)
@@ -96,7 +115,7 @@ int	ft_is_match(char *str, int current_idx, int target_idx)
 
 int	ft_copy_second(char *str, int current_idx, char *arry, int j)
 {
-	while (str[current_idx] != ' ')
+	while (str[current_idx] != ' ' && str[current_idx] != '\0')
 	{
 		arry[j] = str[current_idx];
 		j++;
@@ -109,9 +128,8 @@ void	ft_builder(char *str, char *new_str, int *info)
 {
 	//$>./a.out "Run   go fast go  and lO jump go  here" | cat -e
 	//	     Run   Lo  fast Lo  and 11 go jump Lo   here \n$>
-	//   {second_word, sex_word, len_words, len_str}
-	//   {      0         1,        2,         3}
-
+	//   {second_word, sex_word, size_words, len_str}
+	//   {      0         1,         2,         3}
 	int	i;
 	int	j;
 	int	word_count;
@@ -140,7 +158,7 @@ void	ft_builder(char *str, char *new_str, int *info)
 			{
 				if (ft_is_match(str, i, info[0]))
 				{
-					j = ft_copy_and_flip();
+					j = ft_copy_and_flip(new_str, j, str, info[1]);
 					while (str[i] != ' ' && str[i] != '\0')
 						i++;
 				}
@@ -157,11 +175,13 @@ void	ft_builder(char *str, char *new_str, int *info)
 			if (word_count == (info[2] / 2) + 1)
 			{
 				new_str[j++] = ' ';
-				j = ft_insert_number();
+				j = ft_insert_number(new_str, j, info[2] + 2);
 			}
 		}
 	}
 	new_str[j++] = ' ';
+	new_str[j++] = '\\';
+	new_str[j++] = 'n';
 	new_str[j++] = '\n';
 	new_str[j] = '\0';
 }
@@ -182,7 +202,7 @@ char	*ft_replace_and_flip(char *str)
 		ft_builder_copy(str, arry);
 		return (arry);
 	}
-	total_len = info[3] + len_number + 3;
+	total_len = info[3] + len_number + 7;
 	arry = malloc(total_len * sizeof(char));
 	if (!arry)
 		return (NULL);
@@ -196,6 +216,7 @@ int	main(int argc, char *argv[])
 		return (0);
 	char	*arry;
 	arry = ft_replace_and_flip(argv[1]);
-	//printf("%s\n", arry);
+	printf("%s", arry);
+	free(arry);
 	return (0);
 }
