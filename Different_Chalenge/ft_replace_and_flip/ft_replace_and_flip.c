@@ -6,7 +6,7 @@
 /*   By: Itachi-Logic <ILogic@student.1337.ma>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/09 00:06:41 by Itachi-Logic      #+#    #+#             */
-/*   Updated: 2026/03/11 01:17:21 by Itachi-Logic     ###   ########.fr       */
+/*   Updated: 2026/03/13 23:13:26 by Itachi-Logic     ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 #include <unistd.h>
 #include <stdio.h>
 
-int	ft_scout(char *str, int *info)
+static int	ft_scout(char *str, int *info)
 {
 	int	i;
 	int	nb;
@@ -49,7 +49,7 @@ int	ft_scout(char *str, int *info)
 	return (i);
 }
 
-int	ft_insert_number(char *new_str, int dest_idx, int total_words)
+static int	ft_insert_number(char *new_str, int dest_idx, int total_words)
 {
 	if (total_words <= 9)
 	{
@@ -62,7 +62,7 @@ int	ft_insert_number(char *new_str, int dest_idx, int total_words)
 	return (dest_idx + 1);
 }
 
-int	ft_copy_and_flip(char *new_str, int dest_idx, char *str, int src_idx)
+static int	ft_copy_and_flip(char *new_str, int dest_idx, char *str, int src_idx)
 {
 	while (str[src_idx] != ' ' && str[src_idx] != '\0')
 	{
@@ -78,7 +78,7 @@ int	ft_copy_and_flip(char *new_str, int dest_idx, char *str, int src_idx)
 	return (dest_idx);
 }
 
-void	ft_builder_copy(char *str, char *arry)
+static void	ft_builder_copy(char *str, char *arry)
 {
 	int	i;
 
@@ -94,7 +94,7 @@ void	ft_builder_copy(char *str, char *arry)
 	return ;
 }
 
-int	ft_is_match(char *str, int current_idx, int target_idx)
+static int	ft_is_match(char *str, int current_idx, int target_idx)
 {
 	int	i;
 	int	j;
@@ -113,7 +113,7 @@ int	ft_is_match(char *str, int current_idx, int target_idx)
 	return (0);
 }
 
-int	ft_copy_second(char *str, int current_idx, char *arry, int j)
+static int	ft_copy_second(char *str, int current_idx, char *arry, int j)
 {
 	while (str[current_idx] != ' ' && str[current_idx] != '\0')
 	{
@@ -124,12 +124,20 @@ int	ft_copy_second(char *str, int current_idx, char *arry, int j)
 	return (j);
 }
 
-void	ft_builder(char *str, char *new_str, int *info)
+static void	ft_add_suffix(char *new_str, int j)
 {
-	//$>./a.out "Run   go fast go  and lO jump go  here" | cat -e
-	//	     Run   Lo  fast Lo  and 11 go jump Lo   here \n$>
-	//   {second_word, sex_word, size_words, len_str}
-	//   {      0         1,         2,         3}
+	int	i;
+
+	i = 0;
+	while (i <= 4)
+	{
+		new_str[j++] = " \\n\n\0"[i];
+		i++;
+	}
+}
+
+static void	ft_builder(char *str, char *new_str, int *info)
+{
 	int	i;
 	int	j;
 	int	word_count;
@@ -179,11 +187,41 @@ void	ft_builder(char *str, char *new_str, int *info)
 			}
 		}
 	}
-	new_str[j++] = ' ';
-	new_str[j++] = '\\';
-	new_str[j++] = 'n';
-	new_str[j++] = '\n';
-	new_str[j] = '\0';
+	ft_add_suffix(new_str, j);
+}
+
+static int	ft_calculate_memory(char *str, int *info)
+{
+	int	len2;
+	int	len6;
+	int	count2;
+	int	i;
+	int	total_len;
+
+	len2 = 0;
+	while (str[info[0] + len2] && str[info[0] + len2] != ' ')
+		len2++;
+	len6 = 0;
+	while (str[info[1] + len6] && str[info[1] + len6] != ' ')
+		len6++;
+	i = 0;
+	count2 = 0;
+	while (str[i])
+	{
+		while (str[i] == ' ')
+			i++;
+		if (str[i] != '\0')
+		{
+			if (ft_is_match(str, i, info[0]))
+				count2++;
+			while (str[i] && str[i] != ' ')
+				i++;
+		}
+	}
+	total_len = info[3];
+	total_len += (count2 * len6) - (count2 * len2);
+	total_len += (len2 - len6);
+	return (total_len);
 }
 
 char	*ft_replace_and_flip(char *str)
@@ -192,17 +230,18 @@ char	*ft_replace_and_flip(char *str)
 	int	len_number;
 	int	info[4] = {0};
 	char	*arry;
-
+	//       arry =   {second_word, sex_word, size_words, len_str}
+	//       arry =   {      0         1,         2,         3}
 	len_number = ft_scout(str, info);
 	if (info[2] < 9 || info[2] % 2 == 0)
 	{
-		arry = malloc((info[3] + 3) * sizeof(char));
+		arry = malloc((info[3] + 2) * sizeof(char));
 		if (!arry)
 			return (NULL);
 		ft_builder_copy(str, arry);
 		return (arry);
 	}
-	total_len = info[3] + len_number + 7;
+	total_len = ft_calculate_memory(str, info) + len_number + 5;
 	arry = malloc(total_len * sizeof(char));
 	if (!arry)
 		return (NULL);
@@ -212,9 +251,10 @@ char	*ft_replace_and_flip(char *str)
 
 int	main(int argc, char *argv[])
 {
+	char	*arry;
+
 	if (argc != 2)
 		return (0);
-	char	*arry;
 	arry = ft_replace_and_flip(argv[1]);
 	printf("%s", arry);
 	free(arry);
