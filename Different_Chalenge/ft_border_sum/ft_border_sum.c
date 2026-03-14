@@ -6,7 +6,7 @@
 /*   By: Itachi-Logic <ILogic@student.1337.ma>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/13 23:46:45 by Itachi-Logic      #+#    #+#             */
-/*   Updated: 2026/03/14 00:47:44 by Itachi-Logic     ###   ########.fr       */
+/*   Updated: 2026/03/14 00:57:31 by Itachi-Logic     ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,7 +37,7 @@ int	ft_border_sum(int **matrix, int rows, int cols)
 
 int	main(void)
 {
-	int *matrix[] = {
+	int	*matrix[] = {
 		(int[]){10, 0, 0, 10},
 		(int[]){1, 2, 2, 1},
 		(int[]){10, 0, 0, 10}
