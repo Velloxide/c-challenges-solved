@@ -6,7 +6,7 @@
 /*   By: Itachi-Logic <ILogic@student.1337.ma>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 00:49:03 by Itachi-Logic      #+#    #+#             */
-/*   Updated: 2026/03/16 01:04:04 by Itachi-Logic     ###   ########.fr       */
+/*   Updated: 2026/03/16 01:51:22 by Itachi-Logic     ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,21 +23,20 @@ char	*ft_evenodd(char *str)
 	while (str[i])
 	{
 		if (str[i] == ' ')
-		{
-			j = 0;
-			i++;
-		}
-		if (j % 2 == 0)
-		{
-			if (str[i] >= 'a' && str[i] <= 'z')
-				str[i] -= 32;
-			j++;
-		}
+			j ^= j;
 		else
 		{
-			if (str[i] >= 'A' && str[i] <= 'Z')
-				str[i] += 32;
-			j++;
+			if (j == 0)
+			{
+				if (str[i] >= 'a' && str[i] <= 'z')
+					str[i] &= ~32;
+			}
+			else
+			{
+				if (str[i] >= 'A' && str[i] <= 'Z')
+					str[i] |= 32;
+			}
+			j ^= 1;
 		}
 		i++;
 	}
