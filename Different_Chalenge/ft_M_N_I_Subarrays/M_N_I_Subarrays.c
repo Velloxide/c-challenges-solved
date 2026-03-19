@@ -6,7 +6,7 @@
 /*   By: Itachi-Logic <ILogic@student.1337.ma>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/14 23:55:13 by Itachi-Logic      #+#    #+#             */
-/*   Updated: 2026/03/15 01:35:20 by Itachi-Logic     ###   ########.fr       */
+/*   Updated: 2026/03/16 20:35:38 by Itachi-Logic     ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,6 @@ int	minNumberOperations(int *target, int targetSize)
 	//->              [3,1,4,4,2]
 	//->              [3,1,5,4,2]
 	//Output: 7
-
 	int	totall_move;
 	int	i;
 	int	*initial;
