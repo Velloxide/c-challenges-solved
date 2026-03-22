@@ -6,7 +6,7 @@
 /*   By: Itachi-Logic <ILogic@student.1337.ma>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 22:29:17 by Itachi-Logic      #+#    #+#             */
-/*   Updated: 2026/03/19 00:17:38 by Itachi-Logic     ###   ########.fr       */
+/*   Updated: 2026/03/22 10:09:50 by Itachi-Logic     ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,12 +18,12 @@ int	*findErrorNums(int *nums, int numsSize, int *returnSize)
 	int	i;
 	long	expected_sum;
 	long	nums_sum;
+	int	*output;
 	long long	expected_sq_sum;
 	long long	nums_sq_sum;
 	long long	diff_sum;
 	long long	diff_sq_sum;
 	long long	sum_x_y;
-	int	*output;
 
 	output = malloc(2 * sizeof(int));
 	if (!output)
