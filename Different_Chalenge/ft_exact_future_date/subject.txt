@@ -1,4 +1,4 @@
-Exercise X: ft_exact_future_date
+Exercise: ft_exact_future_date
 
     Turn-in directory: ex_future/
 
