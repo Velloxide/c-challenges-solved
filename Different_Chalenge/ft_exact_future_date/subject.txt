@@ -1,22 +1,23 @@
 Exercise: ft_exact_future_date
-
-    Turn-in directory: ex_future/
-
-    Files to turn in: ft_exact_future_date.c
-
-    Allowed functions: malloc, free
-
-    Prototype: char *ft_exact_future_date(int day, int month, int year, long long days_to_add);
+Files to turn in: ft_exact_future_date.c
+Allowed functions: malloc, free
 
 Description:
 Write a function that calculates the exact future date after adding a specific number of days to a given starting date.
-The function must return a dynamically allocated string in the strict format: DD/MM/YYYY.
+The function must return a dynamically allocated string in the format: DD/MM/Y... (The year digits must expand dynamically to safely accommodate massive future years, e.g., DD/MM/10213).
 If the initial date is invalid, return NULL.
 
+------------------------------
 Moulinette Strict Constraints:
 
-    The Time Limit: The Moulinette will test your code against a strict execution time limit of 0.05 seconds. Any solution that relies on simple day-by-day iteration (O(N) complexity) will result in a Time Limit Exceeded (TLE) and an automatic grade of 0.
+Performance:
+Execution time must be strictly under 0.05 seconds. Day-by-day iteration loops (O(N)) will result in a Time Limit Exceeded (TLE) and a grade of 0.
 
-    Extreme Values: The parameter days_to_add is of type long long and can safely reach up to 100,000,000,000 (100 billion days). Your algorithm must be mathematically optimized to handle massive time jumps instantaneously.
+Extreme Jumps:
+The days_to_add parameter can reach 100 billion. The algorithm must use mathematical optimization to process these jumps instantaneously.
 
-    Gregorian Calendar Accuracy: Your code must flawlessly handle the variations in month lengths and accurately compute Leap Years across centuries
+Calendar Accuracy:
+The code must flawlessly compute Leap Years and exact month lengths across centuries.
+
+Prototype:
+char	*ft_exact_future_date(int day, int month, int year, long long days_to_add);
