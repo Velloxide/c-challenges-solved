@@ -6,7 +6,7 @@
 #    By: Itachi-Logic <ILogic@student.1337.ma>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/24 23:36:06 by Itachi-Logic      #+#    #+#              #
-#    Updated: 2026/03/30 22:12:18 by Itachi-Logic     ###   ########.fr        #
+#    Updated: 2026/03/30 22:15:16 by Itachi-Logic     ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,6 +27,7 @@ all: $(NAME)
 
 $(NAME): $(OBJS)
 	ar rc $(NAME) $(OBJS)
+	ranlib $(NAME)
 
 %.o: %.c
 	$(CC) $(CFLAGS) $(INCLUDES) -c $< -o $@
@@ -35,8 +36,7 @@ clean:
 	rm -rf $(OBJS)
 
 fclean: clean
-	rm -rf $(NAME)
-	ranlib $(NAME)
+	rm -rf $(NAME)	
 
 re: fclean all
 
