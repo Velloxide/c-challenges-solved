@@ -6,7 +6,7 @@
 #    By: Itachi-Logic <ILogic@student.1337.ma>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/24 23:36:06 by Itachi-Logic      #+#    #+#              #
-#    Updated: 2026/03/30 19:47:46 by Itachi-Logic     ###   ########.fr        #
+#    Updated: 2026/03/30 22:12:18 by Itachi-Logic     ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,7 @@ clean:
 
 fclean: clean
 	rm -rf $(NAME)
+	ranlib $(NAME)
 
 re: fclean all
 

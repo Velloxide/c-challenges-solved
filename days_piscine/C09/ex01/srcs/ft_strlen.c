@@ -6,9 +6,11 @@
 /*   By: Itachi-Logic <ILogic@student.1337.ma>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 23:37:01 by Itachi-Logic      #+#    #+#             */
-/*   Updated: 2026/03/02 23:39:27 by Itachi-Logic     ###   ########.fr       */
+/*   Updated: 2026/03/30 21:12:50 by Itachi-Logic     ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "ft.h"
 
 int	ft_strlen(char *str)
 {

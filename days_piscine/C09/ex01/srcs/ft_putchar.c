@@ -6,10 +6,11 @@
 /*   By: Itachi-Logic <ILogic@student.1337.ma>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 23:36:42 by Itachi-Logic      #+#    #+#             */
-/*   Updated: 2026/03/02 23:34:48 by Itachi-Logic     ###   ########.fr       */
+/*   Updated: 2026/03/30 21:12:34 by Itachi-Logic     ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include "ft.h"
 #include <unistd.h>
 
 void	ft_putchar(char c)

@@ -6,9 +6,11 @@
 /*   By: Itachi-Logic <ILogic@student.1337.ma>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 23:36:55 by Itachi-Logic      #+#    #+#             */
-/*   Updated: 2026/03/02 23:40:52 by Itachi-Logic     ###   ########.fr       */
+/*   Updated: 2026/03/30 21:12:45 by Itachi-Logic     ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
+#include "ft.h"
 
 int	ft_strcmp(char *s1, char *s2)
 {
