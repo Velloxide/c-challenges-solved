@@ -6,11 +6,11 @@
 /*   By: Itachi-Logic <ILogic@student.1337.ma>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 23:36:32 by Itachi-Logic      #+#    #+#             */
-/*   Updated: 2026/03/31 22:23:46 by Itachi-Logic     ###   ########.fr       */
+/*   Updated: 2026/04/02 09:31:03 by Itachi-Logic     ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
+//#include <stdio.h>
 #include <stdlib.h>
 
 int	ft_is_sep(char c, char *sep)
@@ -41,7 +41,8 @@ int	ft_count_words(char *str, char *sep)
 			while (str[i] && ft_is_sep(str[i], sep))
 				i++;
 		}
-		else {
+		else
+		{
 			count++;
 			while (str[i] && !ft_is_sep(str[i], sep))
 				i++;
@@ -72,13 +73,6 @@ int	ft_len_put(char *str, char *sep, char *res, int put_or_no)
 	return (i);
 }
 
-void	ft_free_all(char **res, int j)
-{
-	while (j >= 0)
-		free(res[j--]);
-	free(res);
-}
-
 int	ft_putres(char **res, char *str, char *sep, int len_res)
 {
 	int	j;
@@ -92,37 +86,43 @@ int	ft_putres(char **res, char *str, char *sep, int len_res)
 			while (*str && ft_is_sep(*str, sep))
 				str++;
 		}
-		else {
+		else
+		{
 			len_word = 1 + ft_len_put(str, sep, res[j], 0);
 			res[j] = malloc(len_word * sizeof(char));
 			if (!res[j])
-			{
-				ft_free_all(res, (j - 1));
-				return (1);
-			}
+				return (j);
 			str += ft_len_put(str, sep, res[j++], 1);
 		}
 	}
-	return (0);
+	return (-1);
 }
 
 char	**ft_split(char *str, char *charset)
 {
-	int	count_words;
-	int	i;
+	int		count_words;
+	int		j;
 	char	**res;
-	
+
 	count_words = 1 + ft_count_words(str, charset);
 	res = malloc(count_words * sizeof(char *));
 	if (!res)
 		return (NULL);
 	res[count_words - 1] = NULL;
-	i = ft_putres(res, str, charset, count_words);
-	if (i)
+	j = ft_putres(res, str, charset, count_words);
+	if (j != -1)
+	{
+		while (j > 0)
+		{
+			j--;
+			free(res[j]);
+		}
+		free(res);
 		return (NULL);
+	}
 	return (res);
 }
-
+/*
 int	main(int argc, char **argv)
 {
 	char	**res;
@@ -139,6 +139,9 @@ int	main(int argc, char **argv)
 		printf("%s\n", res[i]);
 		i++;
 	}
-	ft_free_all(res, i);
+	while (i >= 0)
+		free(res[i--]);
+	free(res);
 	return (0);
 }
+*/
