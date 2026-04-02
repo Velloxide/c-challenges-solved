@@ -6,7 +6,7 @@
 /*   By: Itachi-Logic <ILogic@student.1337.ma>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/24 23:36:32 by Itachi-Logic      #+#    #+#             */
-/*   Updated: 2026/04/02 09:31:03 by Itachi-Logic     ###   ########.fr       */
+/*   Updated: 2026/04/02 09:33:36 by Itachi-Logic     ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,7 @@ int	ft_len_put(char *str, char *sep, char *res, int put_or_no)
 	return (i);
 }
 
-int	ft_putres(char **res, char *str, char *sep, int len_res)
+int	ft_putres(char **res, char *str, char *sep)
 {
 	int	j;
 	int	len_word;
@@ -109,7 +109,7 @@ char	**ft_split(char *str, char *charset)
 	if (!res)
 		return (NULL);
 	res[count_words - 1] = NULL;
-	j = ft_putres(res, str, charset, count_words);
+	j = ft_putres(res, str, charset);
 	if (j != -1)
 	{
 		while (j > 0)
