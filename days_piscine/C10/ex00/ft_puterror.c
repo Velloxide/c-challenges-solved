@@ -1,40 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_display_file.c                                  :+:      :+:    :+:   */
+/*   ft_puterror.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Itachi-Logic <ILogic@student.1337.ma>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/02 11:24:37 by Itachi-Logic      #+#    #+#             */
-/*   Updated: 2026/04/06 18:56:29 by Itachi-Logic     ###   ########.fr       */
+/*   Created: 2026/04/06 16:14:29 by Itachi-Logic      #+#    #+#             */
+/*   Updated: 2026/04/06 18:56:53 by Itachi-Logic     ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <unistd.h>
-#include <fcntl.h>
 #include "ft.h"
 
-int	main(int argc, char **argv)
+void	ft_puterror(char *err)
 {
-	int	openf;
-
-	if (argc < 2)
-	{
-		ft_puterror("File name missing.\n");
-		return (1);
-	}
-	else if (argc > 2)
-	{
-		ft_puterror("Too many arguments.\n");
-		return (1);
-	}
-	openf = open(argv[1], O_RDONLY);
-	if (openf == -1)
-	{
-		ft_puterror("Cannot read file.\n");
-		return (1);
-	}
-	ft_display_content(openf);
-	close(openf);
-	return (0);
+	int	size;
+	
+	size = 0;
+	while (err[size])
+		size++;
+	ft_putstr_size(err, 2, size);
 }
