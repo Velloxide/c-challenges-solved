@@ -1,22 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft.h                                               :+:      :+:    :+:   */
+/*   ft_err_handling.c                                  :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: Itachi-Logic <ILogic@student.1337.ma>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/04/06 16:22:37 by Itachi-Logic      #+#    #+#             */
-/*   Updated: 2026/04/07 22:58:13 by Itachi-Logic     ###   ########.fr       */
+/*   Created: 2026/04/07 22:55:36 by Itachi-Logic      #+#    #+#             */
+/*   Updated: 2026/04/07 22:57:59 by Itachi-Logic     ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef FT_H
-#define FT_H
+#include <string.h>
+#include <libgen.h>
+#include <errno.h>
+#include "ft.h"
 
-int	ft_display_content(int openf);
-void	ft_err_handling(char **argv, int i);
-void	ft_puterror(char *err, int dut);
-void	ft_putstr_size(char *str, int fd, int size);
-
-#endif // !FT_H
-
+void	ft_err_handling(char **argv, int i)
+{
+	ft_puterror(basename(argv[0]), 1);
+	ft_puterror(argv[i], 1);
+	ft_puterror(strerror(errno), 0);
+}
