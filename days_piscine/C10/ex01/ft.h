@@ -6,7 +6,7 @@
 /*   By: Itachi-Logic <ILogic@student.1337.ma>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/06 16:22:37 by Itachi-Logic      #+#    #+#             */
-/*   Updated: 2026/04/07 22:58:13 by Itachi-Logic     ###   ########.fr       */
+/*   Updated: 2026/04/11 09:32:15 by Itachi-Logic     ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,7 @@
 
 int	ft_display_content(int openf);
 void	ft_err_handling(char **argv, int i);
-void	ft_puterror(char *err, int dut);
-void	ft_putstr_size(char *str, int fd, int size);
+void	ft_putstr_err(char *str);
 
 #endif // !FT_H
 
