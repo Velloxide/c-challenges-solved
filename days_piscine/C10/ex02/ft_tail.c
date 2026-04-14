@@ -6,7 +6,7 @@
 /*   By: Itachi-Logic <ILogic@student.1337.ma>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/11 10:09:54 by Itachi-Logic      #+#    #+#             */
-/*   Updated: 2026/04/11 10:10:43 by Itachi-Logic     ###   ########.fr       */
+/*   Updated: 2026/04/14 23:29:56 by Itachi-Logic     ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,5 @@ int	main(int argc, char *argv[])
 {
 	if (argc != 4)
 		return (1);
-
 	return (0);
 }
