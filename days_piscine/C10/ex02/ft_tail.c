@@ -6,7 +6,7 @@
 /*   By: Itachi-Logic <ILogic@student.1337.ma>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/11 10:09:54 by Itachi-Logic      #+#    #+#             */
-/*   Updated: 2026/04/20 21:22:00 by Itachi-Logic     ###   ########.fr       */
+/*   Updated: 2026/04/20 22:56:42 by Itachi-Logic     ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,11 +33,18 @@ int	main(int argc, char *argv[])
 	}
 	while (file_index < argc)
 	{
-		if (total_files > 1)
-			ft_print_header(argv[file_index], file_index, argc - total_files);
 		file_d = open(argv[file_index], O_RDONLY);
-		ft_display_tail(file_d, nb);
-		close(file_d);
+		if (file_d == -1)
+		{
+			ft_display_error(argv[0], argv[file_index]);
+		}
+		else
+		{
+			if (total_files > 1)
+				ft_print_header(argv[file_index], file_index, argc - total_files);
+			ft_display_tail(file_d, nb);
+			close(file_d);
+		}
 		file_index++;
 	}
 	return (0);

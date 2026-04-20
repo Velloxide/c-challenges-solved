@@ -6,10 +6,11 @@
 /*   By: Itachi-Logic <ILogic@student.1337.ma>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/20 21:18:50 by Itachi-Logic      #+#    #+#             */
-/*   Updated: 2026/04/20 21:19:14 by Itachi-Logic     ###   ########.fr       */
+/*   Updated: 2026/04/20 23:19:19 by Itachi-Logic     ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <libgen.h>
 #include "ft_tail.h"
 
 int	check_formula(int argc, char **argv, int *nb)
@@ -21,11 +22,15 @@ int	check_formula(int argc, char **argv, int *nb)
 		*nb = ft_atoi(argv[1] + 2);
 		return (2);
 	}
-	else
+	if (argc < 3)
 	{
-		if (argc < 3)
-			return (-1);
-		*nb = ft_atoi(argv[2]);
-		return (3);
+		ft_putstr_fd(basename(argv[0]), 2);
+		ft_putstr_fd(": option requires an argument -- 'c'\n", 2);
+		ft_putstr_fd("Try '", 2);
+		ft_putstr_fd(basename(argv[0]), 2);
+		ft_putstr_fd(" --help' for more information.\n", 2);
+		return (-1);
 	}
+	*nb = ft_atoi(argv[2]);
+	return (3);
 }
