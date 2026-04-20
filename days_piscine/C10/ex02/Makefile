@@ -6,15 +6,18 @@
 #    By: Itachi-Logic <ILogic@student.1337.ma>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/24 23:36:06 by Itachi-Logic      #+#    #+#              #
-#    Updated: 2026/04/11 09:32:31 by Itachi-Logic     ###   ########.fr        #
+#    Updated: 2026/04/20 21:25:31 by Itachi-Logic     ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = ft_cat
-SRCS = ft_display_content.c\
-	ft_cat.c\
-	ft_puterror.c\
-	ft_err_handling.c
+NAME = ft_tail
+SRCS = ft_tail.c\
+	check_formula.c\
+	ft_atoi.c\
+	ft_display_tail.c\
+	ft_print_header.c\
+	ft_putstr.c\
+
 OBJS = $(SRCS:.c=.o)
 CC = cc
 CFLAGS = -Wall -Wextra -Werror
