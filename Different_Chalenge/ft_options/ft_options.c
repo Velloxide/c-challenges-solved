@@ -6,11 +6,10 @@
 /*   By: Itachi-Logic <ILogic@student.1337.ma>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/27 18:33:02 by Itachi-Logic      #+#    #+#             */
-/*   Updated: 2026/04/27 21:21:04 by Itachi-Logic     ###   ########.fr       */
+/*   Updated: 2026/04/27 21:33:18 by Itachi-Logic     ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include <stdio.h>
 #include <unistd.h>
 
 void	ft_print_help(char *str)
@@ -45,8 +44,11 @@ int	ft_options(char *str, int *options, int *States)
 	int	i;
 	char	c;
 
-	if (str[0] != '-')
+	if (str[0] != '-' || str[1] == '\0')
+	{
 		*States = 1;
+		return (0);
+	}
 	i = 1;
 	while (str[i])
 	{
