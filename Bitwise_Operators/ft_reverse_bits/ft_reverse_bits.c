@@ -6,8 +6,53 @@
 /*   By: Itachi-Logic <ILogic@student.1337.ma>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/28 22:18:59 by Itachi-Logic      #+#    #+#             */
-/*   Updated: 2026/04/28 22:19:01 by Itachi-Logic     ###   ########.fr       */
+/*   Updated: 2026/04/28 23:27:33 by Itachi-Logic     ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <unistd.h>
 
+unsigned char	ft_reverse_bits(unsigned char octet)
+{
+	int	position;
+	unsigned char result;
+
+	result = 0;
+	position = 8;
+	while (position > 0)
+	{
+		result = result << 1;
+		result = result | (octet & 1);
+		octet = octet >> 1;
+		position--;
+	}
+	return (result);
+}
+
+void	ft_print_bits(unsigned char byte)
+{
+	int	position;
+	unsigned char	bit_value;
+
+	position = 7;
+	while (position >= 0)
+	{
+		bit_value = ((byte >> position) & 1 ) + '0';
+		write(1, &bit_value, 1);
+		position--;
+	}
+	write(1, "\n", 1);
+}
+
+int	main(void)
+{
+	unsigned char	byte;
+
+	byte = 65;
+	write(1, "Before: Value byte\n", 19);
+	ft_print_bits(byte);
+	byte = ft_reverse_bits(byte);
+	write(1, "After: Value byte\n", 18);
+	ft_print_bits(byte);
+	return (0);
+}
