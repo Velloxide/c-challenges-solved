@@ -6,7 +6,7 @@
 /*   By: Itachi-Logic <ILogic@student.1337.ma>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/05/01 19:17:18 by Itachi-Logic      #+#    #+#             */
-/*   Updated: 2026/05/01 22:18:09 by Itachi-Logic     ###   ########.fr       */
+/*   Updated: 2026/05/01 23:31:13 by Itachi-Logic     ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,11 +70,11 @@ void	ft_print_and_free(char **lines, int total_lines, int nb)
 
 void	ft_display_lines(int fd, int nb)
 {
-	int	total_lines;
-	int	length;
-	char	c;
-	char	**lines;
+	int		total_lines;
+	int		length;
 	char	temp_line[4096];
+	char	**lines;
+	char	c;
 
 	lines = malloc(sizeof(char *) * nb);
 	if (!lines)
