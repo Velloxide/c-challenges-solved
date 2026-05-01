@@ -6,7 +6,7 @@
 /*   By: Itachi-Logic <ILogic@student.1337.ma>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/20 21:19:56 by Itachi-Logic      #+#    #+#             */
-/*   Updated: 2026/05/01 17:03:31 by Itachi-Logic     ###   ########.fr       */
+/*   Updated: 2026/05/01 23:28:17 by Itachi-Logic     ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,25 +47,16 @@ void	ft_display_tail(int file_d, int nb)
 	if (total_bytes <= nb)
 	{
 		while (i < total_bytes)
-		{
-			write(1, &ring_buffer[i], 1);
-			i++;
-		}
+			write(1, &ring_buffer[i++], 1);
 	}
 	else
 	{
 		i = total_bytes % nb;
 		while (i < nb)
-		{
-			write(1, &ring_buffer[i], 1);
-			i++;
-		}
+			write(1, &ring_buffer[i++], 1);
 		i = 0;
 		while (i < (total_bytes % nb))
-		{
-			write(1, &ring_buffer[i], 1);
-			i++;
-		}
+			write(1, &ring_buffer[i++], 1);
 	}
 	free(ring_buffer);
 }
