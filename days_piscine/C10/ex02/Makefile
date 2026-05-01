@@ -6,7 +6,7 @@
 #    By: Itachi-Logic <ILogic@student.1337.ma>      +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2026/02/24 23:36:06 by Itachi-Logic      #+#    #+#              #
-#    Updated: 2026/04/20 23:10:20 by Itachi-Logic     ###   ########.fr        #
+#    Updated: 2026/05/01 21:47:37 by Itachi-Logic     ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -17,7 +17,8 @@ SRCS = ft_tail.c\
 	ft_display_tail.c\
 	ft_print_header.c\
 	ft_putstr_fd.c\
-	ft_display_error.c
+	ft_display_error.c\
+	ft_display_lines.c
 
 OBJS = $(SRCS:.c=.o)
 CC = cc
@@ -33,6 +34,6 @@ $(NAME): $(OBJS)
 clean:
 	rm -f $(OBJS)
 fclean: clean
-	rm -f $(NAME)
-
+	rm -rf $(NAME)
+re: fclean all
 .PHONY: all clean fclean

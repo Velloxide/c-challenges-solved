@@ -6,17 +6,22 @@
 /*   By: Itachi-Logic <ILogic@student.1337.ma>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/04/20 21:18:50 by Itachi-Logic      #+#    #+#             */
-/*   Updated: 2026/04/20 23:19:19 by Itachi-Logic     ###   ########.fr       */
+/*   Updated: 2026/05/01 19:41:52 by Itachi-Logic     ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <libgen.h>
 #include "ft_tail.h"
 
-int	check_formula(int argc, char **argv, int *nb)
+int	check_formula(int argc, char **argv, int *nb, int *mode)
 {
 	if (argc < 2 || argv[1][0] != '-' || argv[1][1] != 'c')
-		return (-1);
+	{
+		*mode = 0;
+		*nb = 10;
+		return (1);
+	}
+	*mode = 1;
 	if (argv[1][2] != '\0')
 	{
 		*nb = ft_atoi(argv[1] + 2);
