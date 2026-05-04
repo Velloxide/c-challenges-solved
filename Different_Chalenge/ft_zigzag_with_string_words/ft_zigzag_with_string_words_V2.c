@@ -6,14 +6,14 @@
 /*   By: Itachi-Logic <ILogic@student.1337.ma>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/16 00:49:03 by Itachi-Logic      #+#    #+#             */
-/*   Updated: 2026/03/16 01:51:22 by Itachi-Logic     ###   ########.fr       */
+/*   Updated: 2026/05/03 20:05:17 by Itachi-Logic     ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 
 #include <stdio.h>
 
-char	*ft_evenodd(char *str)
+char	*ft_zigzag_with_string_words(char *str)
 {
 	int	i;
 	int	j;
@@ -43,10 +43,9 @@ char	*ft_evenodd(char *str)
 	return (str);
 }
 
-int	main(void)
+int	main(int argc, char *argv[])
 {
-	char	str[] = "Weird string case";
-	printf("%s\n", ft_evenodd(str));
+	printf("%s\n", ft_zigzag_with_string_words(argv[1]));
 	return (0);
 }
 
