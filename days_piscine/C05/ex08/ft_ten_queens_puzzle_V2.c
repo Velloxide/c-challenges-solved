@@ -6,12 +6,12 @@
 /*   By: Itachi-Logic <ILogic@student.1337.ma>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/16 10:08:23 by Itachi-Logic      #+#    #+#             */
-/*   Updated: 2026/03/02 22:43:19 by Itachi-Logic     ###   ########.fr       */
+/*   Updated: 2026/06/09 19:33:35 by Itachi-Logic     ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <unistd.h>
-
+#include <stdio.h>
 static int	ft_abs(int n)
 {
 	if (n < 0)
@@ -43,6 +43,7 @@ static void	ft_putboard(int *board)
 	i = 0;
 	while (i <= 9)
 	{
+
 		c = board[i] + '0';
 		write(1, &c, 1);
 		i++;
@@ -91,10 +92,12 @@ int	ft_ten_queens_puzzle(void)
 	total_possible_place = solve_helper(board, 0);
 	return (total_possible_place);
 }
-/*
+
 int	main(void)
 {
-	ft_ten_queens_puzzle();
+	int	total_solutions;
+
+	total_solutions = ft_ten_queens_puzzle();
+	printf("total_solutions: %i\n", total_solutions);
 	return (0);
 }
-*/

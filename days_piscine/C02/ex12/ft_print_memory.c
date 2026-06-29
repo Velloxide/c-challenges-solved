@@ -6,7 +6,7 @@
 /*   By: Itachi-Logic <ILogic@student.1337.ma>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 19:17:01 by Itachi-Logic      #+#    #+#             */
-/*   Updated: 2026/01/02 11:24:41 by Itachi-Logic     ###   ########.fr       */
+/*   Updated: 2026/05/09 20:08:26 by Itachi-Logic     ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -101,11 +101,10 @@ void	*ft_print_memory(void *addr, unsigned int size)
 	}
 	return (addr);
 }
-/*
+
 int	main(void)
 {
 	char	str[] = "Bonjour les amin";
 	ft_print_memory((void *) str, 120);
 	return (0);
 }
-*/
