@@ -6,7 +6,7 @@
 /*   By: Velloxide <Velloxide@student.1337.ma>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/06/29 21:17:31 by Velloxide         #+#    #+#             */
-/*   Updated: 2026/06/30 02:11:07 by Velloxide        ###   ########.fr       */
+/*   Updated: 2026/06/30 21:20:57 by Velloxide        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,9 +46,7 @@ void	ft_printhex(unsigned char *str, unsigned int size)
 		else
 			write(1, "  ", 2);
 		if (i % 2 != 0)
-		{
 			write(1, " ", 1);
-		}
 		i++;
 	}
 }
