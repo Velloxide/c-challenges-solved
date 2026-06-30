@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   ft_print_memory.c                                  :+:      :+:    :+:   */
+/*   ft_print_memory_v3.c                               :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Itachi-Logic <ILogic@student.1337.ma>      +#+  +:+       +#+        */
+/*   By: Velloxide <Velloxide@student.1337.ma>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2025/12/29 19:17:01 by Itachi-Logic      #+#    #+#             */
-/*   Updated: 2026/06/30 02:10:47 by Velloxide        ###   ########.fr       */
+/*   Created: 2026/06/30 02:09:46 by Velloxide         #+#    #+#             */
+/*   Updated: 2026/06/30 02:09:50 by Velloxide        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,15 +41,12 @@ void	ft_print_content(char *str, unsigned int size)
 	unsigned int	i;
 
 	i = 0;
-	while (i < 16)
+	while (i < size)
 	{
-		if (i < size)
-		{
-			if (str[i] >= 32 && str[i] <= 126)
-				ft_putchar(str[i]);
-			else
-				ft_putchar('.');
-		}
+		if (str[i] >= 32 && str[i] <= 126)
+			ft_putchar(str[i]);
+		else
+			ft_putchar('.');
 		i++;
 	}
 	return ;
@@ -63,16 +60,18 @@ void	ft_puthex4(char *str, unsigned int size)
 
 	hex_digits = "0123456789abcdef";
 	i = 0;
+	while (i < size)
+	{
+		c = (unsigned char) str[i];
+		ft_putchar(hex_digits[c / 16]);
+		ft_putchar(hex_digits[c % 16]);
+		if (i % 2 != 0)
+			ft_putchar(' ');
+		i++;
+	}
 	while (i < 16)
 	{
-		if (i < size)
-		{
-			c = (unsigned char) str[i];
-			ft_putchar(hex_digits[c / 16]);
-			ft_putchar(hex_digits[c % 16]);
-		}
-		else
-			write(1, "  ", 2);
+		write(1, "  ", 2);
 		if (i % 2 != 0)
 			ft_putchar(' ');
 		i++;
@@ -101,7 +100,7 @@ void	*ft_print_memory(void *addr, unsigned int size)
 	}
 	return (addr);
 }
-/*
+
 #include <stdlib.h>
 int	main(int argc, char **argv)
 {
@@ -109,4 +108,3 @@ int	main(int argc, char **argv)
 		ft_print_memory((void *) argv[1], atoi(argv[2]));
 	return (0);
 }
-*/
