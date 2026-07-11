@@ -6,7 +6,7 @@
 /*   By: Itachi-Logic <ILogic@student.1337.ma>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/02/03 20:33:04 by Itachi-Logic      #+#    #+#             */
-/*   Updated: 2026/05/09 20:18:26 by Itachi-Logic     ###   ########.fr       */
+/*   Updated: 2026/07/08 23:27:40 by Velloxide        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,9 +77,10 @@ int	ft_ten_queens_puzzle(void)
 	count = ft_solve(board, 0);
 	return (count);
 }
-
+/*
 int	main(void)
 {
 	ft_ten_queens_puzzle();
 	return (0);
 }
+*/

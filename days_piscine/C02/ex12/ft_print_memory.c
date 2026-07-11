@@ -6,7 +6,7 @@
 /*   By: Itachi-Logic <ILogic@student.1337.ma>      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/12/29 19:17:01 by Itachi-Logic      #+#    #+#             */
-/*   Updated: 2026/06/30 02:10:47 by Velloxide        ###   ########.fr       */
+/*   Updated: 2026/07/11 17:31:13 by Velloxide        ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -103,10 +103,9 @@ void	*ft_print_memory(void *addr, unsigned int size)
 }
 /*
 #include <stdlib.h>
-int	main(int argc, char **argv)
+int	main()
 {
-	if (argc == 3)
-		ft_print_memory((void *) argv[1], atoi(argv[2]));
-	return (0);
+	char str[] = "bonjourlesaminslejjsdjdhhfsjfhojwdmaroclesproject";
+	ft_print_memory(str, sizeof(str) - 1);
 }
 */
